@@ -187,6 +187,13 @@ const Mutation = new GraphQLObjectType({
                 );
             },
         },
+        deleteLocation: {
+            type: LocationType,
+            args: { id: {type: GraphQLID} },
+            resolve(parent, args) {
+                return Locations.findByIdAndDelete(args.id);
+            },
+        },
     }
 });
 
